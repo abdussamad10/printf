@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	va_list count;
 
 	va_start(count, format);
-
+	if (count != NULL)
 	vprintf(format, count);
 
 	va_end(count);
