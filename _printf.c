@@ -4,8 +4,10 @@
 #include <string.h>
 
 /**
+ * _printf - that produces output according to a format.
+ * @format:
  *
- *
+ * Return: Notihng
  */
 
 int _printf(const char *format, ...)
