@@ -2,17 +2,19 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
+<<<<<<< HEAD
 
 void print_buffer(char bufer[], int *buff_ind);
+=======
+>>>>>>> 3e1dc3fcb2825f8fcc10e25dc568b010adc9b2c3
 /**
  * _printf - print formatted string
  * @format: the formatted string
- *
  * Return: the string length
  */
-
 int _printf(const char *format, ...)
 {
+<<<<<<< HEAD
 	int i, printed_chars = 0;
 	int flags, width, precision, size , buff_ind =0;
 
@@ -65,5 +67,42 @@ void print_buffer(char buffer[], int *buff_ind)
 	if(*buff_ind > 0)
 		write(1, &buffer[0], *buff_ind);
 	*buff_ind = 0;
+=======
+	int a;
+	int lenght, count = 0;
+	va_list args;
+	va_start(args, format);
+	lenght = strlen(format);
+	for (a = 0; a < lenght; a++)
+	{
+		if (*(format + a) == '%')
+		{
+			switch (*(format + a + 1))
+			{
+				case '%':
+					_putchar(va_arg(args, int));
+					count++;
+					break;
+				case 'c':
+					_putchar(va_arg(args, int));
+					count++;
+					break;
+				case 's':
+					_printer(va_arg(args, char *));
+					count++;
+					break;
+				default:
+					break;
+			}
+		}
+		else
+		{
+			_putchar(*(format + a));
+			count++;
+		}
+	}
+	va_end(args);
+	return (count);
+>>>>>>> 3e1dc3fcb2825f8fcc10e25dc568b010adc9b2c3
 }
 		
