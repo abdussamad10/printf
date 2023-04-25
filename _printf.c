@@ -63,9 +63,5 @@ void print_buffer(char buffer[], int *buff_ind)
 		write(1, &buffer[0], *buff_ind);
 
 	*buff_ind = 0;
-<<<<<<< HEAD
-}	
-=======
 }
 
->>>>>>> c2fc794494c3193016a34eb453ae752d4b3737c4
