@@ -9,34 +9,6 @@ void print_buffer(char buffer[], int *buff_ind);
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int len = 0;
-
-	va_start(args, format);
-
-	while (*format != '\0')
-	{
-		if (*format == '%')
-		{
-			format++;
-
-			switch (*format)
-			{
-				case 'c':
-					len += putchar(va_arg(args, int));
-					break;
-				case 's':
-					len += printf("%s", va_arg(args, char *));
-					break;
-				case '%':
-					len += putchar('%');
-					break;
-			}
-		}
-		else
-		{
-			len += putchar(*format);
-
 	int i, printed = 0, printed_chars = 0;
 	int flags, width, precision, size, buff_ind = 0;
 	va_list list;
@@ -71,12 +43,7 @@ int _printf(const char *format, ...)
 				return (-1);
 			printed_chars += printed;
 		}
-
-		format++;
 	}
-
-	va_end(args);
-	return (len);
 
 	print_buffer(buffer, &buff_ind);
 
@@ -97,3 +64,4 @@ void print_buffer(char buffer[], int *buff_ind)
 
 	*buff_ind = 0;
 }
+
